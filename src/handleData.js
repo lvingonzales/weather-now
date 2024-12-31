@@ -1,10 +1,22 @@
 let url;
-const location = `kingston`;
-const date = `2000-12-30`;
-const forecast = {};
+let forecast = JSON.parse(localStorage.getItem('forecast'));
+let today = new Date();
 
-const setURL = (location, date) => {
-    url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}/${date}?unitGroup=metric&key=MAXAK2LZCNLM87S8PFP883Z5Y`;
+function setDate () {
+    let dd = String(today.getDate()).padStart(2, '0');
+    let mm = String(today.getMonth()).padStart(2, '0');
+    let yyyy = today.getFullYear();
+    today = `${yyyy}-${mm}-${dd}`;
+    // console.log (today);
+}
+
+
+if (!forecast) {
+    forecast = {};
+}
+
+const setURL = (location) => {
+    url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}/${today}?unitGroup=metric&key=MAXAK2LZCNLM87S8PFP883Z5Y`;
 }
 
 // setURL(location, date);
@@ -36,14 +48,28 @@ function capitalizeFirstLetter(val) {
 
 const getForecast = () => forecast;
 
+const testData = {
+    description: "This is a description of the weather",
+    temp: Math.floor(Math.random() * 40),
+    tempFeels: Math.floor(Math.random() * 40),
+    tempmax: Math.floor(Math.random() * 40),
+    tempmin: Math.floor(Math.random() * 40),
+    humidity: Math.floor(Math.random() * 100),
+    dewPoint: Math.floor(Math.random() * 40),
+    precipprob: Math.floor(Math.random() * 100),
+}
+
 function fillInfo(data) {
     forecast.description = data.description;
     forecast.currTemp = data.temp;
+    forecast.feelsLike = data.feelslike;
     forecast.tempMax = data.tempmax;
     forecast.tempMin = data.tempmin;
     forecast.humidity = data.humidity;
+    forecast.dewPoint = data.dew;
     forecast.precipChance = data.precipprob;
+    localStorage.setItem('forecast', JSON.stringify(forecast));
 }
 
-export {getData, getForecast, setURL};
+export {getData, getForecast, setURL, fillInfo, setDate};
 
