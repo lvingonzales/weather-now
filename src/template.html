@@ -4,9 +4,79 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="./index.js" defer></script>
-    <title>Document</title>
+    <title>Weather.now</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;0,700;1,100;1,400;1,700&display=swap" rel="stylesheet">
 </head>
 <body>
-    
+    <div id="header">Weather.now</div>
+    <div id="container">
+        <div id="search-wrapper">
+            <input type="text" id="search-bar" />
+            <svg xmlns="http://www.w3.org/2000/svg" height="2rem" viewBox="0 -960 960 960" width="2rem" fill="undefined" id="search-icon">
+                <path d="M380-320q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l224 224q11 11 11 28t-11 28q-11 11-28 11t-28-11L532-372q-30 24-69 38t-83 14Zm0-80q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
+            </svg>
+        </div>
+        <div id="card">
+            <div id="card-header">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="undefined" id="forecast-icon">
+                    <path d="M479.88-766.67q-14.21 0-23.71-9.58t-9.5-23.75v-86.67q0-14.16 9.61-23.75 9.62-9.58 23.84-9.58 14.21 0 23.71 9.58 9.5 9.59 9.5 23.75V-800q0 14.17-9.61 23.75-9.62 9.58-23.84 9.58Zm202.79 84Q673-692.33 673-705.9t9.67-23.43L743.33-791q10.05-10 23.86-10Q781-801 791-791q9.67 9.67 9.67 23.33 0 13.67-9.67 23.34l-61.67 61.66Q719.67-673 706-673q-13.67 0-23.33-9.67Zm117.33 236q-14.17 0-23.75-9.61-9.58-9.62-9.58-23.84 0-14.21 9.58-23.71t23.75-9.5h86.67q14.16 0 23.75 9.61 9.58 9.62 9.58 23.84 0 14.21-9.58 23.71-9.59 9.5-23.75 9.5H800ZM479.88-40q-14.21 0-23.71-9.58-9.5-9.59-9.5-23.75V-160q0-14.17 9.61-23.75 9.62-9.58 23.84-9.58 14.21 0 23.71 9.58t9.5 23.75v86.67q0 14.16-9.61 23.75Q494.1-40 479.88-40ZM230.67-682.67 169-743.33q-10-9.92-10-23.96 0-14.04 10.26-23.71 9.41-9.67 23.07-9.67 13.67 0 23.34 9.67l61.66 61.67Q287-719.67 287-706q0 13.67-9.67 23.33-10.18 9-23.75 9-13.58 0-22.91-9ZM744-169l-61.33-61.67Q673-240.53 673-254.1t9.67-23.23q9.16-9 22.91-9t23.75 9l62.34 60.66q10 9.67 9.58 23.74-.41 14.07-9.51 24-9.94 9.93-24 9.93-14.07 0-23.74-10ZM73.33-446.67q-14.16 0-23.75-9.61Q40-465.9 40-480.12q0-14.21 9.58-23.71 9.59-9.5 23.75-9.5H160q14.17 0 23.75 9.61 9.58 9.62 9.58 23.84 0 14.21-9.58 23.71t-23.75 9.5H73.33ZM169-169.26q-9.67-9.41-9.67-23.07 0-13.67 9.67-23.34l61.67-61.66q9.16-9 22.91-9t23.75 9.16q10 10 10 23.75t-10 23.75L216.67-169q-9.92 10-23.96 10-14.04 0-23.71-10.26ZM480-240q-100 0-170-70t-70-170q0-100 70-170t170-70q100 0 170 70t70 170q0 100-70 170t-170 70Zm0-66.67q72 0 122.67-50.66Q653.33-408 653.33-480t-50.66-122.67Q552-653.33 480-653.33t-122.67 50.66Q306.67-552 306.67-480t50.66 122.67Q408-306.67 480-306.67ZM480-480Z"/>
+                </svg>
+                <span id="location">Toronto</span>
+                <div id="date-time">
+                    <p>December 30, 2024</p>
+                    <p>12:00 PM</p>
+                </div>
+            </div>
+            <div id="card-body">
+                <div id="description">
+                    Sunny
+                </div>
+                <div id="info-box">
+                    <div id="current-temp" class="info-wrapper">
+                        <div id="c-temp-disp" class="info-main">
+                            32
+                        </div>
+                        <div id="c-temp-info" class="info-minor">
+                            Feels like 34
+                        </div>
+                    </div>
+                    <div id="min-temp" class="info-wrapper">
+                        <div id="min-temp-disp" class="info-main">
+                            26
+                        </div>
+                        <div id="min-temp-info" class="info-minor">
+                            Today's Lowest
+                        </div>
+                    </div>
+                    <div id="max-temp" class="info-wrapper">
+                        <div id="max-temp-disp" class="info-main">
+                            32
+                        </div>
+                        <div id="max-temp-info" class="info-minor">
+                            Today's highest
+                        </div>
+                    </div>
+                    <div id="humidity" class="info-wrapper">
+                        <div id="humidity-disp" class="info-main">
+                            70
+                        </div>
+                        <div id="humidity-info" class="info-minor">
+                            The dew point is 21.5 
+                        </div>
+                    </div>
+                    <div id="precip-chance" class="info-wrapper">
+                        <div id="precip-chance-disp" class="info-main">
+                            0%
+                        </div>
+                        <div id="precip-chance-info" class="info-minor">
+                            Chance of rain
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
