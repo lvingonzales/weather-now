@@ -7,7 +7,7 @@ const setURL = (location, date) => {
     url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}/${date}?unitGroup=metric&key=MAXAK2LZCNLM87S8PFP883Z5Y`;
 }
 
-setURL(location, date);
+// setURL(location, date);
 
 const getUrl = () => url;
 
@@ -15,12 +15,12 @@ async function getData() {
     let url = getUrl();
     
     try {
-        const reponse = await fetch(url, {mode: 'cors'});
-        if (!reponse.ok) {
+        const response = await fetch(url, {mode: 'cors'});
+        if (!response.ok) {
             throw new Error(`Response status: ${response.status}`);
         }
         
-        const json = await reponse.json();
+        const json = await response.json();
         console.log(json);
         let todaysData = json.days[0];
         fillInfo(todaysData);
@@ -45,5 +45,5 @@ function fillInfo(data) {
     forecast.precipChance = data.precipprob;
 }
 
-export {getData, getForecast};
+export {getData, getForecast, setURL};
 
