@@ -1,6 +1,6 @@
 #!/bin/bash
-echo enter branch to merge
-read $branchToMerge
+echo -n enter branch to merge
+read -r branchToMerge
 
 git checkout develop
 git merge --no-ff $branchToMerge
