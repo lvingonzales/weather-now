@@ -5,10 +5,6 @@ body {
     flex-direction: column;
 }
 
-div {
-    border: 1px solid red;
-}
-
 #container {
     display: flex;
     flex-direction: column;
@@ -51,6 +47,9 @@ div {
     width: 100%;
     display: flex;
     flex-direction: column;
+    border: 1px solid  	#7393B3;
+    border-radius: 5px;
+    box-shadow: 0px 10px 10px #7393B3;
 }
 
 #card-header {
@@ -60,6 +59,9 @@ div {
     align-items: center;
     font-weight: 700;
     font-size: 3rem;
+    background-color: #FFC100;
+    /* border-bottom: 1px solid #7393B3; */
+    box-shadow: 0px 5px 5px #7393B350;
 }
 
 #forecast-icon {
@@ -78,6 +80,7 @@ div {
     gap: 0px;
     flex-direction: column;
     font-size: 1.5rem;
+    padding-right: 1rem;
 }
 
 #location {
@@ -93,6 +96,47 @@ div {
 
 #card-body {
     flex: 1 1 0;
+    display: flex;
 }
+
+#description,
+#info-box {
+    height: 80%;
+    margin: auto;
+}
+
+#description {
+    width: 30%;
+    font-size: 2rem;
+}
+
+#info-box {
+    width: 60%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr 1fr;
+}
+
+.info-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.info-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    font-weight: 700;
+    height: 70%;
+}
+
+.info-minor {
+    height: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 
 
