@@ -46,3 +46,4 @@ function fillInfo(data) {
 }
 
 export {getData, getForecast};
+
