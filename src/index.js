@@ -11,16 +11,21 @@ searchIcon.addEventListener ("click", () => {searchLocation(searchBar.value)});
 const card = document.getElementById('card');
 
 async function searchLocation (location) {
-    if (!searchBar.value || searchBar.value === ""){return alert ("No location Entered")};
-    setURL(location);
-    await getData();
-    card.classList.remove('hidden');
-    changeData(getForecast());
+    if (searchBar.validity.valueMissing) {
+        searchBar.setCustomValidity("Please enter a location!");
+    } else {
+        searchBar.setCustomValidity("");
+        setURL(location);
+        await getData();
+        card.classList.remove('hidden');
+        changeData(getForecast());
+    } 
 }
 
 // Interface
 function initializeInterface () {
-    setDate();
+    let dateElement = document.querySelector('.date');
+    dateElement.textContent = setDate();
     let forecast = getForecast();
     if (!forecast.description || forecast.description === "") {
         card.classList.add('hidden');
