@@ -16,10 +16,9 @@ if (!forecast) {
 }
 
 const setURL = (location) => {
-    //url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?unitGroup=metric&key=MAXAK2LZCNLM87S8PFP883Z5Y`;
+    url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?unitGroup=metric&key=MAXAK2LZCNLM87S8PFP883Z5Y`;
 }
 
-// setURL(location, date);
 
 const getUrl = () => url;
 
